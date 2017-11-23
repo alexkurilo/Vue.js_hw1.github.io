@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Vue.js hw1</title>
+		<link href="css/styles.css" rel="stylesheet" type="text/css" />
+		
+	</head>
+	<body>  
+		<div id="form">
+			<form id="questions" v-show="questionshow">
+				<label>
+					Enter your name, please:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" v-model="name" id="text" autofocus placeholder="Enter your name">
+				</label><br>
+				<label>
+					Enter your surname, please:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" v-model="surname" id="text" placeholder="Enter your surname"><br>
+				</label>
+				Cheked your gender, please:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" id="gender" name="gender" v-model="gender" value="male">male
+				<input type="radio" id="gender" name="gender" v-model="gender" value="female">female<br>
+				Select your city, please:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<select v-model="selected">
+					<option v-for="option,number in citylist" v-bind:value="number">
+		    			{{ option.city }}				
+					</option>
+				</select><br>
+				Checked your favorite music, please:
+				<input type="checkbox" value="Rock" v-model="music">
+				<span>Rock</span>
+				<input type="checkbox" value="Pop" v-model="music">
+				<span>Pop</span>
+				<input type="checkbox" value="Classic" v-model="music">
+				<span>Classic</span>
+				<input type="checkbox" value="Rave" v-model="music">
+				<span>Rave</span>
+				<input type="checkbox" value="Rap" v-model="music">
+				<span>Rap</span><br>
+				<center>
+					<button id="button" type="submit" name="" v-on:click.prevent="answerdata" v-on:click="questiondata">Submit					
+					</button>
+				</center>
+			</form>
+			
+			<div id="answers" v-show="answershow">
+				Fullname: {{ fullname }}<br>
+				Gender :  {{ gender }}<br>
+				City: {{citylist[selected].city}}<br>
+				Favorite music: 
+				<ul>
+					<li v-for="item in music" >
+						{{ item }}
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		
+		<script src="https://unpkg.com/vue"></script>
+		<script src="js/scripts.js"></script>
+</body>
+</html>

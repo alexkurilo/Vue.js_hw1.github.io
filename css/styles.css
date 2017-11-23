@@ -1,0 +1,23 @@
+#form{
+	font-size:18px;
+}
+#questions, #answers{
+	border: 1px solid green;
+	border-radius: 10px;
+	width: 600px;
+	height: 100%;	
+	background-color: #F0FFFF;
+	margin: 0 auto;
+}
+#text{
+	text-align: right;
+}
+#name, #surname{
+	width: 49%;
+}
+select{
+	width: 170px;
+}
+ul{
+	margin: 0;
+}
